@@ -7,16 +7,16 @@
 # Cole abaixo a linha relevante da saída de:
 # strace echo "ola" 2>&1 | grep write
 
-Saída filtrada:
+Saída filtrada: write(1, "ola\n", 4ola
 
 # Anote:
-#   Argumento 1 (file descriptor):
-#   O que está sendo escrito:
-#   Valor de retorno:
+#   Argumento 1 (file descriptor): 1
+#   O que está sendo escrito: "ola"
+#   Valor de retorno: 4
 
-fd:
-conteúdo:
-retorno:
+fd: 1
+conteúdo: ola\n
+retorno: 4
 
 
 # PARTE B — Programa C com write() direto
