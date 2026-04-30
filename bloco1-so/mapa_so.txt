@@ -8,29 +8,157 @@
 
 /proc
   
+1    2   7          consoles     fb           kmsg          partitions   sysvipc      zoneinfo
+10   3   78         cpuinfo      filesystems  loadavg       sched_debug  thread-self
+11   32  8          crypto       fs           locks         self         timer_list
+119  4   9          devices      interrupts   meminfo       slabinfo     tty
+12   42  buddyinfo  device-tree  iomem        misc          softirqs     uptime
+13   47  bus        diskstats    ioports      mounts        stat         version
+14   5   cgroups    driver       irq          net           swaps        vmallocinfo
+15   6   cmdline    execdomains  kallsyms     pagetypeinfo  sys          vmstat
+
+Serve pra mostrar o conteúdo dentro de um diretório /proc
 
 /proc/cpuinfo
-  
+ 
+hart    : 0
+isa     : rv64acdfimsu
+mmu     : sv48
+
+Mostra a cpu como um arquivo de texto
 
 /proc/meminfo
   
+MemTotal:         186324 kB
+MemFree:          177368 kB
+MemAvailable:     176940 kB
+Buffers:               0 kB
+Cached:             3804 kB
+SwapCached:            0 kB
+Active:             3908 kB
+Inactive:           1164 kB
+Active(anon):       1268 kB
+Inactive(anon):        0 kB
+Active(file):       2640 kB
+Inactive(file):     1164 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:          1304 kB
+Mapped:             2840 kB
+Shmem:                 0 kB
+Slab:               3020 kB
+SReclaimable:        492 kB
+SUnreclaim:         2528 kB
+KernelStack:         160 kB
+PageTables:           68 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:       93160 kB
+Committed_AS:       2336 kB
+VmallocTotal:   67108863 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+
+Lista o estado atual da memória RAM
 
 /proc/uptime
   
+1487.64 1480.38
+
+Dois números, um é o tempo em segundos desde q o sistema foi ligado e o outro o tempo total que todos os núcleos passaram sem fazer nada
 
 /bin
+1)ls /bin:
+'['                                   odvicopy
+ 2to3                                 odvitype
+ 411toppm                             ofm2opl
+ 7z                                   omfonts
+ 7za                                  openssl
+ a2x                                  openvt
+ a2x.py                               opl2ofm
+ ack                                  optex
+ aclocal                              orc-bugreport
+ aclocal-1.16                         osage
+ acpibin                              osirrox
+ acpidump                             ostra-cg
+ acpiexamples                         otangle
+ acpiexec                             otp2ocp
+ acpihelp                             outocp
+ acpisrc                              ovf2ovp
+ acpixtract                           ovp2ovf
+ activate-global-python-argcomplete   p11-kit
+ acyclic                              p11tool
+ addr2line                            pacat
+ afm2tfm                              package-cleanup
+ ag                                   package-stash-conflicts
+ aleph                                pacmd
+ alias                                pactl
+ allcm                                padsp
+ allec                                pahole
+ allneeded                            palmtopnm
+ animalsay                            pamaddnoise
+ animate                              pamaltsat
+ anytopnm                             pamarith
+ appliance-creator                    pambackground
+ applydeltarpm                        pambayer
+ appstreamcli                         pambrighten
+ appstream-compose                    pamchannel
+ appstream-util                       pamcomp
+ apropos                              pamcrater
+ apropos.man-db                       pamcut
+  [...]
 
-  
+2)ls /bin | wc -l:
+2349
+
+1)lista os comandos executáveis no diretório /bin ;2)Mostra o número de linhas da saída anterior.
+
 /dev
-  
+console             ptyc3  ptypb  ptyt3  ptywb   tty1   tty60  ttyd1  ttyq9  ttyu1  ttyx9
+cpu_dma_latency     ptyc4  ptypc  ptyt4  ptywc   tty10  tty61  ttyd2  ttyqa  ttyu2  ttyxa
+full                ptyc5  ptypd  ptyt5  ptywd   tty11  tty62  ttyd3  ttyqb  ttyu3  ttyxb
+hvc0                ptyc6  ptype  ptyt6  ptywe   tty12  tty63  ttyd4  ttyqc  ttyu4  ttyxc
+hvc1                ptyc7  ptypf  ptyt7  ptywf   tty13  tty7   ttyd5  ttyqd  ttyu5  ttyxd
+hvc2                ptyc8  ptyq0  ptyt8  ptyx0   tty14  tty8   ttyd6  ttyqe  ttyu6  ttyxe
+hvc3                ptyc9  ptyq1  ptyt9  ptyx1   tty15  tty9   ttyd7  ttyqf  ttyu7  ttyxf
+hvc4                ptyca  ptyq2  ptyta  ptyx2   tty16  ttya0  ttyd8  ttyr0  ttyu8  ttyy0
+hvc5                ptycb  ptyq3  ptytb  ptyx3   tty17  ttya1  ttyd9  ttyr1  ttyu9  ttyy1
+hvc6                ptycc  ptyq4  ptytc  ptyx4   tty18  ttya2  ttyda  ttyr2  ttyua  ttyy2
+hvc7                ptycd  ptyq5  ptytd  ptyx5   tty19  ttya3  ttydb  ttyr3  ttyub  ttyy3
+kmem                ptyce  ptyq6  ptyte  ptyx6   tty2   ttya4  ttydc  ttyr4  ttyuc  ttyy4
+kmsg                ptycf  ptyq7  ptytf  ptyx7   tty20  ttya5  ttydd  ttyr5  ttyud  ttyy5
+mem                 ptyd0  ptyq8  ptyu0  ptyx8   tty21  ttya6  ttyde  ttyr6  ttyue  ttyy6
+[...]  
+
+Diretório onde ficam os arquivos que representam um dispositivo de hardware, real ou virtual
 
 /etc
-  
+adjtime                      geoclue                mime.types         rpmlint
+aliases                      glances                mke2fs.conf        rsyncd.conf
+alternatives                 glvnd                  mock               rwtab.d
+appstream.conf               gnupg                  modprobe.d         sasl2
+asciidoc                     GREP_COLORS            modules-load.d     screenrc
+asound.conf                  groff                  motd               security
+audit                        group                  motd.d             selinux
+axelrc                       group-                 mtab               sensors3.conf
+bash_completion.d            gshadow                multilib.conf      sensors.d
+bashrc                       gshadow-               Muttrc             services
+bindresvport.blacklist       gss                    Muttrc.local       sestatus.conf
+binfmt.d                     gssproxy               nanorc             setroubleshoot
+[...]
 
+Diretório onde ficam os arquivos de configuração de todo programa instalado no sistema, arquivos reais.
 
 # PARTE B — Questão de reflexão
 # A apresentação mostrou que o supervisor controlava o acesso a I/O
 # e que rotinas de dispositivo traduziam comandos.
 # Em qual diretório do Linux você reconhece essa função?
+
+No diretório /dev
 
 Resposta:
