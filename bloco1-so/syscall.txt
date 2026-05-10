@@ -10,12 +10,12 @@
 Saída filtrada: write(1, "ola\n", 4ola
 
 # Anote:
-#   Argumento 1 (file descriptor): 1
-#   O que está sendo escrito: "ola"
+#   Argumento 1 (file descriptor): 1 
+#   O que está sendo escrito: ola
 #   Valor de retorno: 4
 
 fd: 1
-conteúdo: ola\n
+conteúdo: ola
 retorno: 4
 
 
@@ -23,12 +23,17 @@ retorno: 4
 
 # Cole aqui o código de syscall_direto.c que você escreveu:
 
-[código-fonte]
+#include <unistd.h>
+int main() {
+const char msg[] = "Modo usuario -> kernel via write()\n";
+write(1, msg, sizeof(msg) - 1);
+return 0;
+}
 
 
 # Cole aqui a linha write(...) da saída de strace -o strace.txt ./syscall_direto:
 
-[saída do strace]
+strace.txt:write(1, "Modo usuario -> kernel via write"..., 35) = 35
 
 
 # PARTE C — Questões de síntese
@@ -37,7 +42,7 @@ retorno: 4
 #    Com base no que o strace revelou, explique com suas palavras como um programa
 #    de usuário consegue fazer I/O sem executar instruções privilegiadas diretamente.
 
-Resposta 1:
+Resposta 1: O strace que quando o programa tem que ler ou escrever dados ele faz uma system call, aí pode ser ou read ou write ou open.
 
 
 # 2. Na apresentação sobre a genealogia do software, vimos que os programas de canal
@@ -45,4 +50,4 @@ Resposta 1:
 #    dispositivos, sem intervenção direta da CPU principal. Qual elemento do sistema 
 #    operacional moderno herda esse papel? 
 
-Resposta 2:
+Resposta 2: O elemento DMA (Direct Memory Access)
